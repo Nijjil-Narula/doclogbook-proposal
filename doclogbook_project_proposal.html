@@ -5,100 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DocLogBook — Project Proposal</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
 
-    @page { size: A4 portrait; margin: 11mm 13mm; }
+    @page { size: A4 portrait; margin: 8mm; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      color: #111;
+      color: #000;
       background: #fff;
       font-size: 10.5px;
+      font-weight: 500;
       line-height: 1.5;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    .page { max-width: 186mm; margin: 0 auto; }
+    .page {
+      max-width: 190mm;
+      margin: 0 auto;
+      border: 1.5px solid #000;
+      padding: 10mm 12mm;
+      min-height: 275mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-    /* ── COLOURS ── */
-    .hl           { background: #FEFF9C; padding: 0 2px; }
-    .col-green    { background: #C8F7C5; }
-    .col-yellow   { background: #FEFF9C; }
-    .col-blue     { background: #C2E0FF; }
-    .col-red      { background: #FFCDD2; }
-    th.col-green  { background: #A8EFA4; }
-    th.col-yellow { background: #FEFF9C; }
-    th.col-blue   { background: #99CCFF; }
-    th.col-red    { background: #FFAAAA; }
-    .tick         { color: #15803d; font-weight: 700; margin-right: 2px; }
+    /* ── ULTRA BOLD UTILITY ── */
+    .bolder, strong, th, .sec-title, .doc-title, .ph-name, .bold-td, .tick, .deliv-card-title, .doc-quote {
+      font-weight: 900 !important;
+      color: #000 !important;
+      -webkit-text-stroke: 0.25px #000;
+    }
 
     /* ── TITLE ── */
     .doc-title {
-      font-size: 19px;
-      font-weight: 700;
-      border-bottom: 2px solid #111;
-      padding-bottom: 3px;
-      margin-bottom: 2px;
+      font-size: 19.5px;
+      border-bottom: 2.5px solid #000;
+      padding-bottom: 4px;
+      margin-bottom: 3px;
       display: flex;
       justify-content: space-between;
       align-items: baseline;
     }
-    .doc-cost {
-      font-size: 10px;
-      font-weight: 700;
-      background: #111;
-      color: #fff;
-      padding: 1px 9px;
+    .doc-quote {
+      font-size: 11px;
     }
     .doc-sub {
       font-size: 9.5px;
-      color: #555;
-      margin-bottom: 6px;
-    }
-
-    /* ── LEGEND ── */
-    .legend {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      margin-bottom: 8px;
-      font-size: 9.5px;
+      font-weight: 500;
       color: #333;
-      padding-bottom: 5px;
-      border-bottom: 1px solid #eee;
+      margin-bottom: 12px;
+      letter-spacing: 0.2px;
     }
-    .legend span { display: flex; align-items: center; gap: 3px; }
-    .dot { width: 10px; height: 10px; border: 1px solid #999; flex-shrink: 0; display: inline-block; }
 
-    /* ── GRID LAYOUTS ── */
-    .row-two {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .row-two-wide {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 14px;
-      margin-bottom: 10px;
-    }
-    .sec-block { margin-bottom: 10px; }
+    /* ── SECTION ── */
+    .sec-block { margin-bottom: 12px; }
 
-    /* ── SECTION TITLES ── */
     .sec-title {
       font-size: 11.5px;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      margin-bottom: 4px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
     }
+
     p {
       font-size: 9.5px;
-      color: #444;
+      font-weight: 500;
+      color: #111;
       margin-bottom: 4px;
     }
 
@@ -106,326 +82,237 @@
     .phase-list { list-style: none; }
     .phase-list li {
       display: grid;
-      grid-template-columns: 120px 56px 1fr;
-      gap: 6px;
+      grid-template-columns: 145px 62px 1fr;
+      gap: 8px;
       font-size: 9.5px;
+      font-weight: 500;
       padding: 4px 0;
-      border-bottom: 1px dashed #ddd;
+      border-bottom: 1px solid #d0d0d0;
       align-items: baseline;
     }
     .phase-list li:last-child { border-bottom: none; }
-    .ph-name  { font-weight: 700; }
-    .ph-weeks { color: #666; font-size: 9px; }
-    .ph-desc  { color: #444; font-size: 9px; }
+    .ph-name  { font-size: 9.5px; }
+    .ph-weeks { color: #444; font-size: 9px; font-weight: 600; }
+    .ph-desc  { color: #222; font-size: 9px; font-weight: 500; }
 
     /* ── TABLES ── */
-    table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5px;
+      font-weight: 500;
+    }
     th {
       text-align: left;
       font-size: 9.5px;
-      font-weight: 700;
-      border-bottom: 1.5px solid #111;
+      border-bottom: 1.5px solid #000;
       padding: 4px 6px;
     }
     td {
       padding: 4px 6px;
-      border-bottom: 1px solid #e8e8e8;
+      border-bottom: 1px solid #d0d0d0;
       vertical-align: top;
-      line-height: 1.35;
+      line-height: 1.4;
     }
-    .bold-td { font-weight: 700; white-space: nowrap; }
-    .arr     { text-align: center; color: #aaa; width: 14px; font-size: 11px; padding: 0; }
-    .note-td { font-style: italic; color: #555; font-size: 9px; }
+    .muted   { color: #333; font-size: 9px; font-weight: 500; }
 
-    /* ── MIGRATION NOTE BOX ── */
-    .note-box {
-      border-left: 2.5px solid #111;
-      padding: 7px 10px;
-      font-size: 9.5px;
-      color: #222;
-      line-height: 1.5;
-      background: #fafafa;
-      height: 100%;
-    }
-
-    /* ── DELIVERABLES GRID (Section 6) ── */
+    /* ── DELIVERABLES GRID ── */
     .deliverables-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
+      gap: 10px;
     }
     .deliv-card {
-      border: 1px solid #e0e0e0;
-      border-radius: 2px;
-      padding: 6px 8px;
-      background: #fafafa;
+      border: 1.5px solid #aaa;
+      padding: 7px 9px;
     }
     .deliv-card-title {
       font-size: 9.5px;
-      font-weight: 700;
-      color: #111;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 2px;
-      margin-bottom: 4px;
+      border-bottom: 1.5px solid #bbb;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
     }
     .deliv-list { list-style: none; }
     .deliv-list li {
       font-size: 9px;
+      font-weight: 500;
       margin-bottom: 3px;
       display: flex;
       align-items: baseline;
-      gap: 3px;
-      line-height: 1.3;
+      gap: 4px;
+      line-height: 1.35;
+      color: #111;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      margin-top: 8px;
-      border-top: 1px solid #ccc;
-      padding-top: 4px;
-      font-size: 9px;
-      color: #777;
-      font-style: italic;
+    @media print {
+      body { margin: 0; }
+      .page { max-width: 100%; min-height: 275mm; }
     }
-
-    @media print { .page { max-width: 100%; } }
   </style>
 </head>
 <body>
 <div class="page">
+  <div>
+    <!-- TITLE -->
+    <div class="doc-title">
+      DocLogBook — Project Proposal
+      <span class="doc-quote">Project Quote: ₹60,000</span>
+    </div>
+    <div class="doc-sub">Web Portal &amp; Mobile Application (Android / iOS) &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; Client Proposal</div>
 
-  <!-- ══ TITLE ══ -->
-  <div class="doc-title">
-    DocLogBook — Project Proposal
-    <span class="doc-cost">Project Quote: ₹60,000</span>
-  </div>
-  <div class="doc-sub">Web Portal &amp; Mobile App (Android / iOS) &nbsp;·&nbsp; July 2026 &nbsp;·&nbsp; Client Technical Proposal</div>
-
-  <!-- ══ LEGEND ══ -->
-  <div class="legend">
-    <strong>Key:</strong>
-    <span><span class="dot" style="background:#C8F7C5"></span> Open Source</span>
-    <span><span class="dot" style="background:#FEFF9C"></span> AWS Managed</span>
-    <span><span class="dot" style="background:#C2E0FF"></span> Budget-Friendly Paid</span>
-    <span><span class="dot" style="background:#FFCDD2"></span> Ultra-Premium Paid</span>
-  </div>
-
-  <!-- ══ ROW 1 — TIMELINE  +  TECH STACK ══ -->
-  <div class="row-two">
-
-    <div>
+    <!-- SECTION 1: TIMELINE -->
+    <div class="sec-block">
       <div class="sec-title">1. Timeline</div>
-      <p>Total delivery: <span class="hl">8 weeks (2 months)</span></p>
+      <p>Total delivery: <strong>8 weeks (2 months)</strong></p>
       <ul class="phase-list">
         <li>
-          <span class="ph-name">Setup &amp; Infra</span>
+          <span class="ph-name">Setup &amp; Infrastructure</span>
           <span class="ph-weeks">Week 1</span>
-          <span class="ph-desc">Cloud, database, auth setup</span>
+          <span class="ph-desc">Cloud environment, database initialization, authentication setup</span>
         </li>
         <li>
-          <span class="ph-name">Core &amp; Sync</span>
+          <span class="ph-name">Core Features &amp; Sync</span>
           <span class="ph-weeks">Weeks 2–3</span>
-          <span class="ph-desc">Real-time sync, dashboards, PDF exports</span>
+          <span class="ph-desc">Real-time mobile-to-web data synchronization, dashboards, PDF report exports</span>
         </li>
         <li>
-          <span class="ph-name"><span class="hl">AI Integration</span></span>
+          <span class="ph-name">AI Integration</span>
           <span class="ph-weeks">Weeks 4–6</span>
-          <span class="ph-desc">Voice-to-text, log extraction, search</span>
+          <span class="ph-desc">Voice-to-text transcription, clinical log extraction, natural language search engine</span>
         </li>
         <li>
-          <span class="ph-name">Testing &amp; Audit</span>
+          <span class="ph-name">Testing &amp; Security Audit</span>
           <span class="ph-weeks">Week 7</span>
-          <span class="ph-desc">QA, speech accuracy, HIPAA audit</span>
+          <span class="ph-desc">End-to-end QA, speech recognition accuracy tuning, HIPAA compliance audit</span>
         </li>
         <li>
           <span class="ph-name">Go Live</span>
           <span class="ph-weeks">Week 8</span>
-          <span class="ph-desc">Deploy, App Store release, sign-off</span>
+          <span class="ph-desc">Production cloud deployment, App Store &amp; Play Store release, client sign-off</span>
         </li>
       </ul>
     </div>
 
-    <div>
+    <!-- SECTION 2: TECH STACK -->
+    <div class="sec-block">
       <div class="sec-title">2. Technology Stack</div>
-      <p>All on <span class="hl">approved AWS services only.</span></p>
+      <p>All services hosted on approved AWS cloud infrastructure.</p>
       <table>
         <thead>
-          <tr><th>Layer</th><th>What We Use</th><th>Purpose</th></tr>
+          <tr><th style="width:145px">Layer</th><th style="width:210px">Service</th><th>Purpose</th></tr>
         </thead>
         <tbody>
-          <tr><td class="bold-td">Backend API</td><td>Python / Node.js · App Runner</td><td>Core logic, ingestion, tasks</td></tr>
-          <tr><td class="bold-td">Database &amp; S3</td><td>Amazon RDS (PostgreSQL) · S3</td><td>Records, audio, PDFs</td></tr>
-          <tr><td class="bold-td">Real-Time Sync</td><td><span class="hl">AWS AppSync</span> (WebSockets)</td><td>Instant mobile → web sync</td></tr>
-          <tr><td class="bold-td">AI Engine</td><td>faster-whisper · vLLM · LiteLLM</td><td>STT, extraction, search</td></tr>
-          <tr><td class="bold-td">Auth &amp; Infra</td><td>API Gateway · Cognito · EC2</td><td>Login, roles, GPU hosting</td></tr>
+          <tr>
+            <td class="bold-td">Backend API</td>
+            <td>Python / Node.js · AWS App Runner</td>
+            <td class="muted">Core REST/GraphQL business logic, data ingestion pipelines, background scheduled tasks</td>
+          </tr>
+          <tr>
+            <td class="bold-td">Database &amp; Storage</td>
+            <td>Amazon RDS (PostgreSQL) · Amazon S3</td>
+            <td class="muted">Structured patient records, encrypted audio logs, exported clinical reports &amp; PDFs</td>
+          </tr>
+          <tr>
+            <td class="bold-td">Real-Time Sync</td>
+            <td>AWS AppSync (WebSockets)</td>
+            <td class="muted">Instant bi-directional data synchronization between mobile app and web dashboard</td>
+          </tr>
+          <tr>
+            <td class="bold-td">AI Engine</td>
+            <td>Amazon Transcribe Medical · Amazon Bedrock</td>
+            <td class="muted">Medical speech-to-text, clinical log extraction, natural language database search</td>
+          </tr>
+          <tr>
+            <td class="bold-td">Auth &amp; Infrastructure</td>
+            <td>API Gateway · Amazon Cognito · Amazon EC2</td>
+            <td class="muted">Secure doctor/admin login, role-based access control, scalable cloud compute</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
-  </div>
-
-  <!-- ══ ROW 2 — AI ROADMAP  +  WHY UPGRADING ══ -->
-  <div class="row-two-wide">
-
-    <div>
-      <div class="sec-title">3. AI Roadmap — Start Free, Upgrade Later</div>
-      <p>We launch with free open-source models, then upgrade to AWS managed services — no app changes needed.</p>
+    <!-- SECTION 3: AI SERVICES -->
+    <div class="sec-block">
+      <div class="sec-title">3. AI Services</div>
+      <p>All AI capabilities are powered by AWS managed services, ensuring HIPAA compliance, scalability, and zero infrastructure overhead.</p>
       <table>
         <thead>
           <tr>
-            <th style="width:90px">Task</th>
-            <th class="col-green">Open Source</th>
-            <th style="width:13px"></th>
-            <th class="col-yellow">AWS Managed</th>
-            <th>Why Upgrade</th>
+            <th style="width:145px">Capability</th>
+            <th style="width:210px">AWS Service</th>
+            <th>What It Does</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="bold-td">Voice → Text</td>
-            <td class="col-green">Whisper Large v3 Turbo</td>
-            <td class="arr">→</td>
-            <td class="col-yellow">Amazon Transcribe Medical</td>
-            <td class="note-td">Streaming speed + HIPAA BAA</td>
+            <td class="bold-td">Voice to Text</td>
+            <td>Amazon Transcribe Medical</td>
+            <td class="muted">Real-time streaming speech recognition with specialized medical terminology support</td>
           </tr>
           <tr>
             <td class="bold-td">Log Extraction</td>
-            <td class="col-green">Qwen-2.5-7B-Instruct</td>
-            <td class="arr">→</td>
-            <td class="col-yellow">Bedrock Claude 3.5 Sonnet</td>
-            <td class="note-td">Reliability + concurrency</td>
+            <td>Amazon Bedrock — Claude 3.5 Sonnet</td>
+            <td class="muted">Converts spoken voice transcripts into structured OPD and surgery log entries</td>
           </tr>
           <tr>
-            <td class="bold-td">Search &amp; SQL</td>
-            <td class="col-green">Qwen-2.5-Coder + DeepSeek</td>
-            <td class="arr">→</td>
-            <td class="col-yellow">Bedrock KB + OpenSearch</td>
-            <td class="note-td">Scalable vector search</td>
+            <td class="bold-td">Smart Search</td>
+            <td>Amazon Bedrock Knowledge Base · OpenSearch</td>
+            <td class="muted">Natural language search queries across doctor's patient cases and financial records</td>
           </tr>
           <tr>
-            <td class="bold-td">Analytics</td>
-            <td class="col-green">DeepSeek-R1-Distill-Llama</td>
-            <td class="arr">→</td>
-            <td class="col-yellow">Bedrock Claude 3.5 Sonnet</td>
-            <td class="note-td">Accurate financial reporting</td>
+            <td class="bold-td">Analytics AI</td>
+            <td>Amazon Bedrock — Claude 3.5 Sonnet</td>
+            <td class="muted">Automated financial summaries, practice growth insights, and productivity reporting</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div>
-      <div class="sec-title">4. Why Upgrading AI Won't Break Anything</div>
-      <div class="note-box">
-        The app never talks to an AI model directly — it always goes through one internal gateway called the <strong>LiteLLM Proxy</strong>. Swapping models only updates that routing config.<br><br>
-        <span class="hl">The mobile app, web portal, and all backend code stay completely unchanged.</span><br><br>
-        Faster AI, zero downtime, no App Store resubmission required.
+    <!-- SECTION 4: KEY DELIVERABLES -->
+    <div class="sec-block" style="margin-bottom:0;">
+      <div class="sec-title">4. Key Deliverables &amp; Core Features</div>
+      <div class="deliverables-grid">
+
+        <div class="deliv-card">
+          <div class="deliv-card-title">Practice &amp; Financial Analytics</div>
+          <ul class="deliv-list">
+            <li><span class="tick">✓</span> Financial Analytics &amp; Revenue Summary</li>
+            <li><span class="tick">✓</span> Growth Analytics</li>
+            <li><span class="tick">✓</span> Productivity Analytics</li>
+            <li><span class="tick">✓</span> OPD &amp; Surgery Analytics</li>
+            <li><span class="tick">✓</span> Hospital-wise &amp; Procedure-wise Insights</li>
+            <li><span class="tick">✓</span> Payment &amp; Insurance / TPA Analytics</li>
+            <li><span class="tick">✓</span> Pending Payments &amp; Collection Rate</li>
+          </ul>
+        </div>
+
+        <div class="deliv-card">
+          <div class="deliv-card-title">AI &amp; Voice Capabilities</div>
+          <ul class="deliv-list">
+            <li><span class="tick">✓</span> AI Voice-to-Text (Medical Terms)</li>
+            <li><span class="tick">✓</span> Conversational Log Creation (OPD / Surgery)</li>
+            <li><span class="tick">✓</span> AI Context-Aware Assistant</li>
+            <li><span class="tick">✓</span> AI Chatbot (Queries Doctor's Own Data)</li>
+            <li><span class="tick">✓</span> Natural Language AI Search</li>
+            <li><span class="tick">✓</span> AI Persona &amp; Proactive Recommendations</li>
+          </ul>
+        </div>
+
+        <div class="deliv-card">
+          <div class="deliv-card-title">Dashboards, Reports &amp; Sync</div>
+          <ul class="deliv-list">
+            <li><span class="tick">✓</span> Practice Overview Dashboard</li>
+            <li><span class="tick">✓</span> Monthly &amp; Annual Automated Reports</li>
+            <li><span class="tick">✓</span> Export — PDF, Word, Excel</li>
+            <li><span class="tick">✓</span> Revenue, OPD &amp; Surgery Trend Charts</li>
+            <li><span class="tick">✓</span> Real-Time Mobile ↔ Web Portal Sync</li>
+            <li><span class="tick">✓</span> Doctor / Admin Role Authentication</li>
+          </ul>
+        </div>
+
       </div>
     </div>
-
   </div>
-
-  <!-- ══ SECTION 4 — PAID MODEL COMPARISON ══ -->
-  <div class="sec-block">
-    <div class="sec-title">5. Paid Model Comparison — Budget vs. Ultra-Premium</div>
-    <p>If moving to paid models, these budget-friendly alternatives deliver near-identical performance at a fraction of the cost.</p>
-    <table>
-      <thead>
-        <tr>
-          <th style="width:88px">Task Domain</th>
-          <th class="col-red">Ultra-Premium Paid Model</th>
-          <th style="width:13px"></th>
-          <th class="col-blue">Budget-Friendly Paid Model</th>
-          <th style="width:55px; text-align:center">Cost Saving</th>
-          <th>Performance Note</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="bold-td">Medical ASR</td>
-          <td class="col-red">AssemblyAI Universal-3 Pro (Medical)</td>
-          <td class="arr">→</td>
-          <td class="col-blue">Deepgram Nova-3 Medical (Streaming)</td>
-          <td style="font-weight:700; text-align:center">87.2%</td>
-          <td class="note-td">~5.26% WER vs 3.2% MER. Offset by Keyterm Prompting + downstream LLM</td>
-        </tr>
-        <tr>
-          <td class="bold-td">Voice → JSON</td>
-          <td class="col-red">Anthropic Claude Opus 4.7</td>
-          <td class="arr">→</td>
-          <td class="col-blue">OpenAI GPT-4o-mini (Structured Outputs)</td>
-          <td style="font-weight:700; text-align:center">99.1%</td>
-          <td class="note-td">94% parity on n2c2 clinical extraction. JSON schema maintained</td>
-        </tr>
-        <tr>
-          <td class="bold-td">Text-to-SQL</td>
-          <td class="col-red">OpenAI GPT-5.6 Terra</td>
-          <td class="arr">→</td>
-          <td class="col-blue">Qwen 2.5 Coder 32B Instruct</td>
-          <td style="font-weight:700; text-align:center">99.5%</td>
-          <td class="note-td">72.3% BIRD Execution Accuracy. Matches frontier on single/dual JOINs</td>
-        </tr>
-        <tr>
-          <td class="bold-td">Practice Insights</td>
-          <td class="col-red">Claude Opus 4.7</td>
-          <td class="arr">→</td>
-          <td class="col-blue">DeepSeek R1 (via Azure AI Foundry)</td>
-          <td style="font-weight:700; text-align:center">96%</td>
-          <td class="note-td">Near-identical reasoning on analytics &amp; compliance benchmarks</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- ══ SECTION 6 — KEY DELIVERABLES ══ -->
-  <div class="sec-block">
-    <div class="sec-title">6. Key Deliverables &amp; Core Features Provided</div>
-    <div class="deliverables-grid">
-
-      <div class="deliv-card">
-        <div class="deliv-card-title">Practice &amp; Financial Analytics</div>
-        <ul class="deliv-list">
-          <li><span class="tick">✓</span> Financial Analytics &amp; Revenue Summary</li>
-          <li><span class="tick">✓</span> Growth Analytics</li>
-          <li><span class="tick">✓</span> Productivity Analytics</li>
-          <li><span class="tick">✓</span> OPD &amp; Surgery Analytics</li>
-          <li><span class="tick">✓</span> Hospital-wise &amp; Procedure-wise Insights</li>
-          <li><span class="tick">✓</span> Payment &amp; Insurance / TPA Analytics</li>
-          <li><span class="tick">✓</span> Pending Payments &amp; Collection Rate</li>
-        </ul>
-      </div>
-
-      <div class="deliv-card">
-        <div class="deliv-card-title">AI &amp; Voice Capabilities</div>
-        <ul class="deliv-list">
-          <li><span class="tick">✓</span> AI Voice-to-Text (Medical Terms)</li>
-          <li><span class="tick">✓</span> Conversational Log Creation (OPD / Surgery)</li>
-          <li><span class="tick">✓</span> AI Context-Aware Assistant</li>
-          <li><span class="tick">✓</span> AI Chatbot (Queries Doctor's Own Data)</li>
-          <li><span class="tick">✓</span> Natural Language AI Search</li>
-          <li><span class="tick">✓</span> AI Persona &amp; Proactive Recommendations</li>
-        </ul>
-      </div>
-
-      <div class="deliv-card">
-        <div class="deliv-card-title">Dashboards, Reports &amp; Sync</div>
-        <ul class="deliv-list">
-          <li><span class="tick">✓</span> Practice Overview Dashboard</li>
-          <li><span class="tick">✓</span> Monthly &amp; Annual Automated Reports</li>
-          <li><span class="tick">✓</span> Export — PDF, Word, Excel</li>
-          <li><span class="tick">✓</span> Revenue, OPD &amp; Surgery Trend Charts</li>
-          <li><span class="tick">✓</span> Real-Time Mobile ↔ Web Portal Sync</li>
-          <li><span class="tick">✓</span> Doctor / Admin Role Authentication</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ══ FOOTER ══ -->
-  <footer>
-    All estimates are approximate and subject to revision upon final requirement sign-off. &nbsp;·&nbsp; AWS services from approved list only. &nbsp;·&nbsp; Project quote: ₹60,000.
-  </footer>
-
 </div>
 </body>
 </html>
