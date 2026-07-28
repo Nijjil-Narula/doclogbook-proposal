@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DocLogBook — Project Proposal</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
     @page { size: A4 portrait; margin: 8mm; }
 
@@ -33,16 +33,10 @@
       justify-content: space-between;
     }
 
-    /* ── ULTRA BOLD UTILITY ── */
-    .bolder, strong, th, .sec-title, .doc-title, .ph-name, .bold-td, .tick, .deliv-card-title, .doc-quote {
-      font-weight: 900 !important;
-      color: #000 !important;
-      -webkit-text-stroke: 0.25px #000;
-    }
-
     /* ── TITLE ── */
     .doc-title {
-      font-size: 19.5px;
+      font-size: 19px;
+      font-weight: 850;
       border-bottom: 2.5px solid #000;
       padding-bottom: 4px;
       margin-bottom: 3px;
@@ -52,6 +46,7 @@
     }
     .doc-quote {
       font-size: 11px;
+      font-weight: 850;
     }
     .doc-sub {
       font-size: 9.5px;
@@ -66,6 +61,7 @@
 
     .sec-title {
       font-size: 11.5px;
+      font-weight: 850;
       border-bottom: 1.5px solid #000;
       padding-bottom: 2px;
       margin-bottom: 5px;
@@ -77,6 +73,8 @@
       color: #111;
       margin-bottom: 4px;
     }
+
+    strong { font-weight: 850; }
 
     /* ── PHASE LIST ── */
     .phase-list { list-style: none; }
@@ -91,7 +89,7 @@
       align-items: baseline;
     }
     .phase-list li:last-child { border-bottom: none; }
-    .ph-name  { font-size: 9.5px; }
+    .ph-name  { font-weight: 850; color: #000; }
     .ph-weeks { color: #444; font-size: 9px; font-weight: 600; }
     .ph-desc  { color: #222; font-size: 9px; font-weight: 500; }
 
@@ -105,8 +103,10 @@
     th {
       text-align: left;
       font-size: 9.5px;
+      font-weight: 850;
       border-bottom: 1.5px solid #000;
       padding: 4px 6px;
+      color: #000;
     }
     td {
       padding: 4px 6px;
@@ -114,6 +114,7 @@
       vertical-align: top;
       line-height: 1.4;
     }
+    .bold-td { font-weight: 850; color: #000; }
     .muted   { color: #333; font-size: 9px; font-weight: 500; }
 
     /* ── DELIVERABLES GRID ── */
@@ -128,9 +129,11 @@
     }
     .deliv-card-title {
       font-size: 9.5px;
+      font-weight: 850;
       border-bottom: 1.5px solid #bbb;
       padding-bottom: 3px;
       margin-bottom: 5px;
+      color: #000;
     }
     .deliv-list { list-style: none; }
     .deliv-list li {
@@ -143,6 +146,7 @@
       line-height: 1.35;
       color: #111;
     }
+    .tick { font-weight: 850; color: #000; }
 
     @media print {
       body { margin: 0; }
